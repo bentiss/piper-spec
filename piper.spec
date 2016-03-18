@@ -1,20 +1,11 @@
-%global gitdate 20160308
-%global gitversion f475a78a6
-
 Name:           piper
 Version:        0.1
-Release:        1%{?gitdate:.%{gitdate}git%{gitversion}}%{?dist}
+Release:        2%{?dist}
 Summary:        Piper is a GTK-based utility to configure gaming mice.
 
 License:        GPLv2
 URL:            https://github.com/libratbag/piper
-%if 0%{?gitdate}
-Source0:        %{name}-%{gitdate}.tar.xz
-Source1:        make-git-snapshot.sh
-Source2:        commitid
-%else
 Source0:        https://github.com/libratbag/%{name}/archive/%{version}/%{name}-%{version}.tar.gz
-%endif
 
 BuildArch:      noarch
 BuildRequires:  python3-setuptools python3-devel
@@ -26,7 +17,7 @@ Piper is a GTK-based utility to access, inspect and configure mice with
 multiple hardware profiles and/or resolutions.
 
 %prep
-%setup -q -n %{name}-%{?gitdate:%{gitdate}}%{!?gitdate:%{version}}
+%setup -q -n %{name}-%{version}
 
 %build
 %py3_build
@@ -43,6 +34,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %{_datadir}/applications/piper.desktop
 
 %changelog
+* Fri Mar 18 2016 Benjamin Tissoires <benjamin.tissoires@redhat.com> 0.1-2
+- remove git snapshots hooks in the specfile
+
 * Tue Mar 08 2016 Benjamin Tissoires <benjamin.tissoires@redhat.com> 0.1-1.20160308:f475a78a6
 - git snapshot
 
