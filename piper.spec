@@ -1,6 +1,6 @@
 Name:           piper
 Version:        0.2.1
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Piper is a GTK-based utility to configure gaming mice.
 
 License:        GPLv2
@@ -47,6 +47,9 @@ fi
 %{_datadir}/icons/hicolor/scalable/apps/piper.svg
 
 %changelog
+* Fri Sep 16 2016 Benjamin Tissoires <benjamin.tissoires@redhat.com> 0.2.1-2
+- Rebuild for f25
+
 * Wed Apr 06 2016 Peter Hutterer <peter.hutterer@redhat.com> 0.2.1-1
 - piper 0.2.1
 
